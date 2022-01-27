@@ -11,7 +11,7 @@ import React from "react";
 import "./Header.css";
 import categories from "../../data/category";
 
-const Header = ({ setCategory, category }) => {
+const Header = ({ setCategory, category, word, setWord }) => {
   const darkTheme = createTheme({
     palette: {
       primary: {
@@ -21,29 +21,36 @@ const Header = ({ setCategory, category }) => {
     },
   });
 
+  const handleChange = (language) => {
+    setCategory(language);
+    setWord("");
+  };
+
   return (
     <div className="header">
-      <span className="title">Word Hunt</span>
+      <span className="title">{word ? word : "Word Hunt"}</span>
       <div className="inputs">
         <ThemeProvider theme={darkTheme}>
           <TextField
             className="search"
             label="Search for a Word"
             id="standard-basic"
+            value={word}
+            onChange={(e) => setWord(e.target.value)}
           />
-          <FormControl fullWidth>
-            <InputLabel id="demo-simple-select-label">Language</InputLabel>
-            <Select
-              value={category}
-              onChange={(e) => setCategory(e.target.value)}
-            >
-              {categories.map((option) => (
-                <MenuItem key={option.label} value={option.label}>
-                  {option.value}
-                </MenuItem>
-              ))}
-            </Select>
-          </FormControl>
+          <TextField
+            select
+            label="Language"
+            value={category}
+            onChange={(e) => handleChange(e.target.value)}
+            className="select"
+          >
+            {categories.map((option) => (
+              <MenuItem key={option.label} value={option.label}>
+                {option.value}
+              </MenuItem>
+            ))}
+          </TextField>
         </ThemeProvider>
       </div>
     </div>

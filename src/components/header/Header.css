@@ -13,3 +13,23 @@
   width: 100%;
   color: white;
 }
+
+@media (max-width: 900px) {
+  .header {
+    height: 25vh;
+  }
+  .title {
+    font-size: 11vw;
+  }
+}
+
+.inputs {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.select,
+.search {
+  width: 43%;
+}
