@@ -17,18 +17,19 @@ const Definitions = ({ word, category, meanings }) => {
                 style={{ backgroundColor: "white", color: "black" }}
               >
                 <b>{def.definition}</b>
-                <hr style={{ backgroundColor: "black", width: "100%" }} />
+                <br />
                 {def.example && (
                   <span>
-                    <b>Example: </b>
+                    <i>Example: </i>
                     {def.example}
                   </span>
                 )}
                 {def.synonyms && (
                   <span>
                     <br />
-                    <b>Synonyms: </b>
+                    <i>Synonyms: </i>
                     {def.synonyms.map((s) => `${s}, `)}
+                    <hr style={{ backgroundColor: "black", width: "100%" }} />
                   </span>
                 )}
               </div>
