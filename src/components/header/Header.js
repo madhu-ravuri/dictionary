@@ -1,9 +1,6 @@
 import {
   createTheme,
-  FormControl,
-  InputLabel,
   MenuItem,
-  Select,
   TextField,
   ThemeProvider,
 } from "@material-ui/core";
